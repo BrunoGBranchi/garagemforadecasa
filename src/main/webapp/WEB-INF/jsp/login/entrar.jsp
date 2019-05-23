@@ -26,7 +26,6 @@
 						<label>Senha: </label> <input class="form-control" type="password"
 							name="senha" required="required" placeholder="Sua Senha" />
 					</div>
-
 					<button class="btn btn-success" type="submit" name="Entrar" />Login</button>
 				</form>
 				<a href="login/cadastro"><label>Esqueci minha senha</label></a>
