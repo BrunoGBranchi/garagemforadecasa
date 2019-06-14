@@ -5,20 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="<c:url value="/resource/Bootstrap/css/bootstrap.css"/>"
-	rel="stylesheet" type="text/css">
+
 <title>Acessar Sistema</title>
+
+<link href="<c:url value="/webjars/bootstrap/3.4.1/css/bootstrap.css"/>"
+	rel="stylesheet" type="text/css">
+
+<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet"
+	type="text/css">
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
+
+<script type="text/javascript" src="<c:url value="/webjars/jquery/1.9.1/jquery.min.js"/>"></script>
+
+<script src="<c:url value="/webjars/bootstrap/3.4.1/js/bootstrap.js"/>"></script>
+
+
 </head>
 <body>
-	<div class="container">
-		<h2 class="text-center">Bem Vindo!</h2>
-		<br>
-		<div class="jumbotron">
-			<h4 class="text-center">Selecione o sistema abaixo</h4>
-			<div class="jumbotron">
-				<a class="btn btn-lg btn-primary btn-block" href="<c:url value = "../abastecimento/cadastro"/>"> Sistema de abastecimento</a>
-			</div>
-		</div>
-	</div>
+	<c:import url="../index/cabecalho.jsp"></c:import>
+	
+	<script type="text/javascript"
+		src="<c:url value="/webjars/jquery/1.9.1/jquery.min.js"/>"></script>
+	<script type="text/javascript"
+		src="<c:url value="/webjars/bootstrap/3.4.1/js/bootstrap.js"/>"></script>
 </body>
 </html>

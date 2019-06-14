@@ -25,32 +25,23 @@ public class LoginController {
 
 	@RequestMapping(path = "/verificar")
 	public String menu(Usuarios usuario, Model model) throws IOException {
-
 		Usuarios u = usuariosDao.validarLogin(usuario.getUser(), usuario.getSenha());
-
 		if (u != null) {
 			return "redirect:/login/menu";
 		} else {
-			return "redirect:/login/erro";
+			model.addAttribute("alerta","Senha Errada");
+			return "login/entrar";
 		}
 	}
 
 	@RequestMapping(path = "/menu", method = RequestMethod.GET)
 	public String menu() {
-		return "redirect:estacionamento/home";
-	}
-
-	public boolean validador(String pass) {
-		if (pass.equals("123456")) {
-			return true;
-		} else {
-			return false;
-		}
+		return "login/menu";
 	}
 
 	@RequestMapping(path = "/erro", method = RequestMethod.GET)
 	public String erro() {
-		return "redirect;login/erro";
+		return "login/erro";
 	}
 
 }

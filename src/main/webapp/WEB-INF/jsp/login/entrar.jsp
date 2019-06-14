@@ -19,15 +19,23 @@
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3">
 				<h1 class="text-center">Bem Vindo!</h1>
+				
+					
+					<c:if test="${alerta != null}">
+					<div>${alerta}</div>
+					
+					</c:if>
+				
 				<form class="form-group"
 					action='<c:url value="/login/verificar"></c:url>' method="post">
 					<div class="form-group">
+									
 						<label>Usuario: </label> <input class="form-control" type="text"
-							name="user" required="required" placeholder="Seu Usuario" />
+							name="user" required="required" placeholder="Seu Usuario" value="brunogbranchi" />
 					</div>
 					<div class="form-group">
 						<label>Senha: </label> <input class="form-control" type="password"
-							name="senha" required="required" placeholder="Sua Senha" />
+							name="senha" required="required" placeholder="Sua Senha" value="123456"/>
 					</div>
 					<button class="btn btn-success" type="submit" name="Entrar" />
 					Login

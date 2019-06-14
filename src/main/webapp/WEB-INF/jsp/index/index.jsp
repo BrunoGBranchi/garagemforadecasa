@@ -8,23 +8,6 @@
 <link href="<c:url value="/resource/Bootstrap/css/bootstrap.css"/>" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3">
-				<h1 class="text-center">Bem Vindo!</h1>
-				<form class="form-group"
-					action='<c:url value="/index/verificar"></c:url>' method="post">
-					<div class="form-group">
-						<label>Informe o codigo de acesso: </label> 
-						<input class="form-control" type="password"
-							name="senha" required="required" placeholder="Sua Senha" />
-					</div>
-					
-					<input class="btn btn-default" type="submit" name="Enviar" />
-				</form>
-			</div>
-		</div>
-	</div>
-	<a href = "/your.groupid/abastecimento/cadastro"><button class="btn btn-primary">Abrir Sistema</button></a>
+	REDIRECTING...
 </body>
 </html>
