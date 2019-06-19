@@ -40,6 +40,7 @@
 							<li><a href="/SistemaEstacionamento/cliente/cadastro">Cadastro Cliente</a></li>
 							<li><a href="/SistemaEstacionamento/veiculo/cadastro">Cadastro Veículo</a></li>
 							<li><a href="/SistemaEstacionamento/vaga/cadastro">Cadastro Vaga Do Veículo</a></li>
+							<li>${usuarios.nome}</li>
 
 						</ul>
 					</div>

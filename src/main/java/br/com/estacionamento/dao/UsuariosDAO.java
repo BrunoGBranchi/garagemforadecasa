@@ -9,4 +9,5 @@ public interface UsuariosDAO extends JpaRepository<Usuarios, Long>{
 	
 	@Query("select u from Usuarios u where u.user = ?1 and u.senha = ?2")
 	Usuarios validarLogin(String usuario, String senha);
+	
 }

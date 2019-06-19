@@ -119,22 +119,6 @@
 	<script type="text/javascript"
 		src="<c:url value="/webjars/bootstrap/3.4.1/js/bootstrap.js"/>"></script>
 	<script type="text/javascript">
-		setInterval(function() {
-
-			const data = new Date();
-
-			$('#data-hora')
-					.text(
-							data.toLocaleDateString() + ' '
-									+ data.toLocaleTimeString());
-
-		}, 1000);
-
-		setTimeout(function() {
-			$('body').css('background-color', 'white');
-			$('fieldset').css('background-color', 'white');
-		}, 5000);
-
 		$.ajax({
 
 					'url' : "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
@@ -142,15 +126,14 @@
 					'success' : function(listaUf) {
 						var option = '<option>Selecione o Estado</option>';
 						$.each(listaUf, function(i, obj) {
-							option += '<option value="' + obj.sigla + '">'
-									+ obj.sigla + '</option>';
+							option += '<option value="'+obj.nome+'" data-codigo="'+obj.id+'">'+obj.sigla+'</option>';
 						})
 
 						$("#uf").html(option).show();
 					}
 				});
 		$('#uf').change(function(e) {
-		var estado = $('#uf').val();
+		var estado = $('#uf').find('option:selected').data('codigo');
 		
 		$.ajax({
 		'url' : "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+ estado + "/municipios",

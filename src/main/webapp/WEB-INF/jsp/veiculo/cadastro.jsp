@@ -80,7 +80,7 @@
 					
 					<div class="form-group">
 						<button class="btn btn-success" type="submit" name="Enviar">Salvar</button>
-						<a href="<c:url value = "/veiculo/mostrar"/>"> <button class="btn btn-info">Listar Vagas</button></a>
+						<a href="<c:url value = "/veiculo/mostrar"/>"> <button class="btn btn-info">Listar Veiculos</button></a>
 					</div>
 				</form>
 				
