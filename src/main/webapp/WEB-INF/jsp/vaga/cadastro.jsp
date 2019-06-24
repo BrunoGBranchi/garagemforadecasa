@@ -67,9 +67,9 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Cliente: </label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="cliente.codigo" size="1" id="cliente">
+                            <select class="form-control" name="cliente" size="1">
 								<c:forEach var="c" items="${clientes}">
-									<option value="${c.codigo}">${c.nome}</option>
+									<option value="${c.nome}">${c.nome}</option>
 								</c:forEach>                            
 								</select>
                         </div>
@@ -79,7 +79,10 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Placa: </label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="placa" size="1" id="veiculo">
+                            <select class="form-control" name="veiculo" size="1" id="veiculo">
+                            <c:forEach var="v" items="${veiculos}">
+									<option value="${v.placa}">${v.placa}</option>
+								</c:forEach>
                             </select>
                         </div>
                     </div>
@@ -90,15 +93,15 @@
                                 <label class="col-md-4 control-label" for="radios">Tamanhos das Vagas:</label>
                                 <div class="col-md-4">
                                     <label class="radio-inline" for="radios-0">
-                                        <input type="radio" name="pequeno"  value="p" checked="checked">
+                                        <input type="radio" name="tamanho"  value="p" checked="checked">
                                         P
                                     </label>
                                     <label class="radio-inline" for="radios-1">
-                                        <input type="radio" name="medio"  value="m">
+                                        <input type="radio" name="tamanho"  value="m">
                                         M
                                     </label>
                                     <label class="radio-inline" for="radios-2">
-                                        <input type="radio" name="grande" value="g">
+                                        <input type="radio" name="tamanho" value="g">
                                         G
                                     </label>
 
@@ -109,7 +112,7 @@
                     <div class="form-group">
 						<label class="col-sm-2 control-label">Horas: </label>
 						<div class="col-sm-2">
-							<input class="form-control" type="number" name="horas" id="horas" />
+							<input class="form-control" type="number" name="tempo"/>
 						</div>
 					</div>
 					
@@ -136,20 +139,18 @@
 	<script type="text/javascript">
 
 	$('#cliente').change(function(e){
-	var cliente = $('#cliente').find('option:selected').data('codigo');
+	var cliente = $('#cliente').find('option:selected').val();
 		$.ajax({
-
-			'url': "dinamico/"+cliente,
-			'type': "GET",
-			'success': function(listaVeiculos){	    
-	          	var option = '<option>Selecione o Veiculo</option>';
-	          		$.each(listaVeiculos, function(i, obj){
-	              		option += '<option>'+obj.modelo+'</option>';
-	          		})  		
-	       		
-	       		$("#veiculo").html(option).show(); 
-	    }
-	})
+		    type: "GET",
+		    url: "http://localhost:8080/SistemaEstacionamento/vaga/getVagas/" + cliente,
+		    success: function(listaVeiculos){	    
+	    		console.log(listaVeiculos);
+	  		 },
+			error: function(erro){
+				console.log(erro);
+	  		 }
+		});
+		
 	});
 
 	

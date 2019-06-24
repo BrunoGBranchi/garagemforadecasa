@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import br.com.estacionamento.dao.ClienteDAO;
 import br.com.estacionamento.dao.VagaDAO;
 import br.com.estacionamento.dao.VeiculoDAO;
@@ -28,7 +27,7 @@ public class VagaController {
 	@RequestMapping(path= {"/cadastro", "/", ""})
 	public String cadastro(Model model) {
 		model.addAttribute("clientes", clienteDao.findAll());
-		model.addAttribute("listaClientes", clienteDao.findAll());
+		model.addAttribute("veiculos", veiculoDao.findAll());
 		return "vaga/cadastro";
 	}
 	
@@ -53,10 +52,15 @@ public class VagaController {
 
 	}
 	
-	
-	@RequestMapping(path= {"/dinamico/{codigo}"})
-	public String findveiculo(@PathVariable(value = "codigo") Long codigo ,Model model) {
-		model.addAttribute("listaVeiculos", veiculoDao.filtraPorCliente(codigo));
-		return "vaga/cadastro";
+	/*
+	@RequestMapping(path= "/getVagas/{codigo}", method = RequestMethod.GET)
+	@ResponseBody
+	public String findveiculo(@PathVariable(value = "codigo") Long codigo) {
+		List<Veiculo> lista =  veiculoDao.filtraPorCliente(codigo);
+		Gson gson = new Gson();
+		String listaToString = gson.toJson(lista);
+		System.out.println(lista);
+		return listaToString.toString(); 
 	}
+	*/
 }

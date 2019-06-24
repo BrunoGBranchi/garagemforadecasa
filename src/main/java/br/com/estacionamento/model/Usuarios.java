@@ -1,9 +1,12 @@
 package br.com.estacionamento.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuarios implements Serializable {
@@ -16,8 +19,30 @@ public class Usuarios implements Serializable {
 	private String nome;
 	private String user;
 	private String senha;
-
+	private boolean ativo;
 	
+
+	@ManyToMany
+	private List<Grupo> grupos;
+	
+	@ManyToMany
+	private List<Permissao> permissoes;
+	
+	
+	
+	public Usuarios() {
+
+	}
+
+	public Usuarios(Long codigo, String nome, String user, String senha, boolean ativo) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.user = user;
+		this.senha = senha;
+		this.ativo = ativo;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -50,16 +75,12 @@ public class Usuarios implements Serializable {
 		this.senha = senha;
 	}
 
-	public Usuarios(Long codigo, String nome, String user, String senha) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.user = user;
-		this.senha = senha;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public Usuarios() {
-
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 }

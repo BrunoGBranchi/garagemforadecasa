@@ -11,7 +11,7 @@ public interface VeiculoDAO extends JpaRepository<Veiculo, Long> {
 	
 	List<Veiculo> findByModelo (String modelo);
 	
-	@Query("select v from Veiculo v where v.cliente = ?1")
+	@Query("select v from Veiculo v join fetch v.cliente cli where cli.codigo = ?1")
 	List<Veiculo> filtraPorCliente(Long codigo);
 
 }
