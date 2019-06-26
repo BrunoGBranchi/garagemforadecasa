@@ -1,16 +1,21 @@
-.carro{
+.carro {
 	font-size: 60px;
-	color:black;
+	color: black;
 }
-.navbar-nav > li >a{
-  color: black;
-  font-size: 17px;
 
+.navbar-nav>li>a {
+	color: black;
+	font-size: 17px;
 }
-.navbar-nav{
+
+.navbar-nav>li>a:hover {
+	background-color: #eee;
+}
+
+.navbar-nav {
 	margin-top: 5px;
 }
 
-.btncss{
+.btncss {
 	font-size: 5px;
 }

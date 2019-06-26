@@ -38,9 +38,13 @@
 					action='<c:url value="/veiculo/enviar"></c:url>' method="post">
 					
 					<div class="form-group">
+						<c:if test="${avisoCliente != null}">
+							<div class="alert alert-warning" role="alert"><a style="text-decoration: none;" href="<c:url value = "/cliente/cadastro"/>">${avisoCliente}</a></div>
+						</c:if>
 						<label class="col-sm-2 control-label">Cliente: </label>
 						<div class="col-sm-10">
 							<select class="form-control" name="cliente.codigo" size="1">
+							<option>Selecione o cliente</option>
 								<c:forEach var="c" items="${clientes}">
 									<option value="${c.codigo}">${c.nome}</option>
 								</c:forEach>
@@ -80,10 +84,9 @@
 					
 					<div class="form-group">
 						<button class="btn btn-success" type="submit" name="Enviar">Salvar</button>
-						<a href="<c:url value = "/veiculo/mostrar"/>"> <button class="btn btn-info">Listar Veiculos</button></a>
 					</div>
 				</form>
-				
+				<a href="<c:url value = "/veiculo/mostrar"/>"> <button class="btn btn-info">Listar Veiculos</button></a>
 			 
 			</div>
 		</div>

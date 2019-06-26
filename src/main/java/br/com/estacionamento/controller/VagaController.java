@@ -1,15 +1,22 @@
 package br.com.estacionamento.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
+
 import br.com.estacionamento.dao.ClienteDAO;
 import br.com.estacionamento.dao.VagaDAO;
 import br.com.estacionamento.dao.VeiculoDAO;
 import br.com.estacionamento.model.Vaga;
+import br.com.estacionamento.model.Veiculo;
 
 @Controller
 @RequestMapping("/vaga")
@@ -28,6 +35,7 @@ public class VagaController {
 	public String cadastro(Model model) {
 		model.addAttribute("clientes", clienteDao.findAll());
 		model.addAttribute("veiculos", veiculoDao.findAll());
+		
 		return "vaga/cadastro";
 	}
 	

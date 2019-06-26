@@ -36,12 +36,10 @@
 					</div>
 					<div id="navbar" class="col-xs-10 col-sm-10 navbar-collapse collapse col-md-10 col-lg-10">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="home.jsp">Inicio</a></li>
-							<li><a href="/SistemaEstacionamento/cliente/cadastro">Cadastro Cliente</a></li>
-							<li><a href="/SistemaEstacionamento/veiculo/cadastro">Cadastro Veículo</a></li>
-							<li><a href="/SistemaEstacionamento/vaga/cadastro">Cadastro Vaga Do Veículo</a></li>
-							<li>${usuarios.nome}</li>
-
+							<li><a href="/SistemaEstacionamento/login/menu">Inicio</a></li>
+							<li><a href="/SistemaEstacionamento/cliente/cadastro">Clientes</a></li>
+							<li><a href="/SistemaEstacionamento/veiculo/cadastro">Veiculos</a></li>
+							<li><a href="/SistemaEstacionamento/vaga/cadastro">Vagas</a></li>
 						</ul>
 					</div>
 					<div class="navbar-right col-xs-1 col-sm-1 col-md-1 col-lg-1">

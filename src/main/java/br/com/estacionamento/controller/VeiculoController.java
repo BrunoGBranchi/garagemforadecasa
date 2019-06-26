@@ -24,7 +24,14 @@ public class VeiculoController {
 	@RequestMapping(path= {"/cadastro", "/", ""})
 	public String cadastro(Model model) {
 		model.addAttribute("clientes", clienteDao.findAll());
-		return "veiculo/cadastro";
+		if (clienteDao.findAll().isEmpty()) {
+			model.addAttribute("avisoCliente", "Nenhum cliente cadastrado. Para cadastrar um cliente, clique aqui!");
+		}
+		if (veiculoDao.findAll().isEmpty()) {
+			return "veiculo/cadastro";
+		} else {
+			return "redirect:/veiculo/mostrar";
+		}
 	}
 	
 	@RequestMapping(path= {"/mostrar"})

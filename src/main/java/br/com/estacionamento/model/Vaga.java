@@ -53,36 +53,25 @@ public class Vaga implements Serializable {
 	}
 
 	public double getPreco() {
+		switch (tamanho) {
+		case "p":
+			preco = tempo * 2;
+			break;
+		case "m":
+			preco = (tempo * 3);
+			break;
+		case "g":
+			preco = (tempo * 5);
+			break;
+		}
 		return preco;
 		
 	}
 
 	public void setPreco(double preco) {
-		double total = 0;
-		if(tamanho == "p") {
-			total = tempo * 2;
-			System.out.println(total);
-		}
-		
-		if(tamanho == "m") {
-			total = (tempo * 3);
-		}
-		
-		if(tamanho == "g") {
-			total = (tempo * 5);
-		}
-		this.preco = total;
+		this.preco = preco;
 	}
 	
-	public double calculaPreco() {
-		double total = 0;
-		if(tamanho == "p") {
-			total = tempo * 2;
-			System.out.println(total);
-		}
-		return total;
-	}
-
 	public Vaga(Long codigo, String cliente, String veiculo, String tamanho, double tempo, double preco) {
 		super();
 		this.codigo = codigo;

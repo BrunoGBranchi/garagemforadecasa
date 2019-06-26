@@ -22,7 +22,7 @@
 				
 					
 					<c:if test="${alerta != null}">
-					<div>${alerta}</div>
+					<div class="alert alert-danger" role="alert">${alerta}</div>
 					
 					</c:if>
 				
@@ -31,16 +31,15 @@
 					<div class="form-group">
 									
 						<label>Usuario: </label> <input class="form-control" type="text"
-							name="user" required="required" placeholder="Seu Usuario" value="brunogbranchi" />
+							name="user" required="required" placeholder="Seu Usuario" />
 					</div>
 					<div class="form-group">
 						<label>Senha: </label> <input class="form-control" type="password"
-							name="senha" required="required" placeholder="Sua Senha" value="123456"/>
+							name="senha" required="required" placeholder="Sua Senha"/>
 					</div>
-					<button class="btn btn-success" type="submit" name="Entrar"> Login </button>
+					<button class="btn btn-success btn-block" type="submit" name="Entrar"> Login </button>
 				</form>
-				<a href="login/cadastro"><label>Esqueci minha senha</label></a>
-				<button class="btn btn-info btn-block">Sou novo aqui!</button>
+				<a href="<c:url value = "/usuarios/cadastro"/>"><button class="btn btn-info btn-block">Sou novo aqui!</button></a>
 			</div>
 		</div>
 	</div>
