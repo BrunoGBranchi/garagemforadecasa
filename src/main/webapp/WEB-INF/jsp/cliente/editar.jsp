@@ -51,7 +51,8 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">CPF: </label>
 						<div class="col-sm-10">
-							<input class="form-control" type="text" name="cpf" value="${clientes.cpf}" />
+							<input class="form-control" type="text" name="cpf"
+								value="${clientes.cpf}" />
 						</div>
 					</div>
 
@@ -83,6 +84,7 @@
 						<label class="col-sm-2 control-label">Estado: </label>
 						<div class="col-sm-10">
 							<select class="form-control" name="uf" size="1" id="uf">
+								<option>${clientes.uf}</option>
 							</select>
 						</div>
 					</div>
@@ -95,6 +97,7 @@
 						<label class="col-sm-2 control-label">Cidade: </label>
 						<div class="col-sm-10">
 							<select class="form-control" name="cidade" size="1" id="cidade">
+								<option>${clientes.cidade}</option>
 							</select>
 						</div>
 					</div>
@@ -122,42 +125,45 @@
 	<script type="text/javascript"
 		src="<c:url value="/webjars/bootstrap/3.4.1/js/bootstrap.js"/>"></script>
 	<script type="text/javascript">
+		$
+				.ajax({
 
-        setInterval(function () {
+					'url' : "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
+					'type' : "GET",
+					'success' : function(listaUf) {
+						var option = '<option>${clientes.uf}</option>';
+						$
+								.each(
+										listaUf,
+										function(i, obj) {
+											option += '<option value="'+obj.nome+'" data-codigo="'+obj.id+'">'
+													+ obj.sigla + '</option>';
+										})
 
-            const data = new Date();
+						$("#uf").html(option).show();
+					}
+				});
+		$('#uf')
+				.change(
+						function(e) {
+							var estado = $('#uf').find('option:selected').data('codigo');
 
-            $('#data-hora').text(data.toLocaleDateString() + ' ' + data.toLocaleTimeString());
+$.ajax({
+										'url' : "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"
+												+ estado + "/municipios",
+										'type' : "GET",
+										'success' : function(listaCidades) {
+											var option = '<option>Selecione a Cidade</option>';
+											$.each(listaCidades, function(i,
+													obj) {
+												option += '<option>' + obj.nome
+														+ '</option>';
+											})
 
-
-        }, 1000);
-
-        setTimeout(function () {
-            $('body').css('background-color', 'white');
-            $('fieldset').css('background-color', 'white');
-        }, 5000);
-
-        $.ajax({
-
-            'url': "
-							https://servicodados.ibge.gov.br/api/v1/localidades/estados",
-            'type': "GET",
-            'success':
-							function (listaUf) {
-                var
-							option='<option>'${clientes.uf}'</option>';
-                $.each(listaUf, function (i, obj) {
-                    option +='<option value="' + obj.id + '">'+ obj.sigla + '</option>';
-							}) $("#uf").html(option).show(); } });
-							$('#uf').change(function (e) { var estado =
-							$('#uf').val(); $.ajax({ 'url':
-							"https://servicodados.ibge.gov.br/api/v1/localidades/estados/" +
-							estado + "/municipios", 'type': "GET", 'success': function
-							(listaCidades) { var option = '
-							<option>${clientes.cidade}</option>'; $.each(listaCidades,
-							function (i, obj) { option += '
-							<option>' + obj.nome + '</option>'; })
-
-							$("#cidade").html(option).show(); } }) }); </script>
+											$("#cidade").html(option).show();
+										}
+									})
+						});
+	</script>
 </body>
 </html>

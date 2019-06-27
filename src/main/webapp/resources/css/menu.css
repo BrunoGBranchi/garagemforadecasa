@@ -1,0 +1,26 @@
+.topo{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url('https://i.pinimg.com/originals/88/27/a6/8827a63bca769a5175674e327669b015.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.topo h1{
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,1.5);
+    font-size: 65px;
+}
+
+.topo h3{
+    text-shadow: 2px 2px 3px rgba(0,0,0,2);
+}
+
+.mensagem{
+    padding: 228px 0;
+}
+
+.divide{
+    width: 400px;
+}

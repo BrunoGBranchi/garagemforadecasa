@@ -68,6 +68,7 @@
                         <label class="col-sm-2 control-label">Cliente: </label>
                         <div class="col-sm-10">
                             <select class="form-control" name="cliente" size="1">
+								<option>Selecione o cliente</option>
 								<c:forEach var="c" items="${clientes}">
 									<option value="${c.nome}">${c.nome}</option>
 								</c:forEach>                            
@@ -80,6 +81,7 @@
                         <label class="col-sm-2 control-label">Placa: </label>
                         <div class="col-sm-10">
                             <select class="form-control" name="veiculo" size="1" id="veiculo">
+                            <option>Selecione o Veiculo</option>
                             <c:forEach var="v" items="${veiculos}">
 									<option value="${v.placa}">${v.placa}</option>
 								</c:forEach>

@@ -2,6 +2,8 @@ package br.com.estacionamento.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,12 +65,13 @@ public class VagaController {
 	/*
 	@RequestMapping(path= "/getVagas/{codigo}", method = RequestMethod.GET)
 	@ResponseBody
-	public String findveiculo(@PathVariable(value = "codigo") Long codigo) {
+	public String findveiculo(@PathVariable(value = "codigo") Long codigo, Model model, HttpServletResponse response) {
 		List<Veiculo> lista =  veiculoDao.filtraPorCliente(codigo);
 		Gson gson = new Gson();
 		String listaToString = gson.toJson(lista);
 		System.out.println(lista);
-		return listaToString.toString(); 
+		response.setStatus(200);
+		return listaToString.toString();
 	}
 	*/
 }

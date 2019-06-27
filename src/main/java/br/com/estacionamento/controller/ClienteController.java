@@ -21,11 +21,7 @@ public class ClienteController {
 	
 	@RequestMapping(path= {"/cadastro", "/", ""})
 	public String cadastro() {
-		if (clienteDao.findAll().isEmpty()) {
 			return "cliente/cadastro";
-		} else {
-			return"redirect:/cliente/mostrar";
-		}
 	}
 	
 	@RequestMapping(path= {"/mostrar"})

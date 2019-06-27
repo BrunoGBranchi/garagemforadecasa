@@ -37,8 +37,8 @@
 					<div id="navbar" class="col-xs-10 col-sm-10 navbar-collapse collapse col-md-10 col-lg-10">
 						<ul class="nav navbar-nav">
 							<li><a href="/SistemaEstacionamento/login/menu">Inicio</a></li>
-							<li><a href="/SistemaEstacionamento/cliente/cadastro">Clientes</a></li>
-							<li><a href="/SistemaEstacionamento/veiculo/cadastro">Veiculos</a></li>
+							<li><a href="/SistemaEstacionamento/cliente/mostrar">Clientes</a></li>
+							<li><a href="/SistemaEstacionamento/veiculo/mostrar">Veiculos</a></li>
 							<li><a href="/SistemaEstacionamento/vaga/cadastro">Vagas</a></li>
 						</ul>
 					</div>

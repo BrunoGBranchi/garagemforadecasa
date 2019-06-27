@@ -27,11 +27,7 @@ public class VeiculoController {
 		if (clienteDao.findAll().isEmpty()) {
 			model.addAttribute("avisoCliente", "Nenhum cliente cadastrado. Para cadastrar um cliente, clique aqui!");
 		}
-		if (veiculoDao.findAll().isEmpty()) {
-			return "veiculo/cadastro";
-		} else {
-			return "redirect:/veiculo/mostrar";
-		}
+		return "veiculo/cadastro";
 	}
 	
 	@RequestMapping(path= {"/mostrar"})
